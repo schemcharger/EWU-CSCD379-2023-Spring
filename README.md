@@ -1,6 +1,5 @@
 ## Azure Website ##
-By Alan Rose and Neriah Graham
-https://red-pebble-003ab421e.3.azurestaticapps.net/
+By Neriah Graham
 
 ## Instructors ##
 [Grant Erickson](https://github.com/GrantErickson), [Meg Woodford](https://github.com/mmwoodfo), and [Mark Michaelis](https://github.com/MarkMichaelis)
