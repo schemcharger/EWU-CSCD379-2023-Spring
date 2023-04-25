@@ -22,19 +22,19 @@ jobs:
           node-version: 18
       - name: Install Packages
         run: npm ci
-        working-directory: ./wordle-web
+        working-directory: ./Vaesen_Character_Sheet
       - name: Lint Code
-        working-directory: ./wordle-web
+        working-directory: ./Vaesen_Character_Sheet
         run: npm run lint
       - name: Prettier Check
-        working-directory: ./wordle-web
+        working-directory: ./Vaesen_Character_Sheet
         run: npm run format:check
       - name: Build Vue App 
-        working-directory: ./wordle-web
+        working-directory: ./Vaesen_Character_Sheet
         run: npm run build
       - name: Run Vitest Unit Tests
         run: npm run test:unit
-        working-directory: ./wordle-web
+        working-directory: ./Vaesen_Character_Sheet
       
       - name: Deploy
         if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
