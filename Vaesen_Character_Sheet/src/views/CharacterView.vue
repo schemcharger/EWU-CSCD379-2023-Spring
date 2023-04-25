@@ -1,15 +1,16 @@
 <template>
   <main>
     <h1>This is a character sheet</h1>
-    <v-list>
-      <v-list-subheader>todo</v-list-subheader>
-      <v-list-item>add character details</v-list-item>
-      <v-list-item>add character portrait</v-list-item>
-      <v-list-item>add character stats</v-list-item>
-      <v-list-item>add character skills</v-list-item>
-      <v-list-item>add character talents</v-list-item>
-      <v-list-item>add character equipment</v-list-item>
-      <v-list-item>add character notes</v-list-item>
-    </v-list>
+    <v-card>
+        <ul>
+        <li>add character details</li>
+        <li>add character portrait</li>
+        <li>add character stats</li>
+        <li>add character skills</li>
+        <li>add character talents</li>
+        <li>add character equipment</li>
+        <li>add character notes</li>
+        </ul>
+    </v-card>
   </main>
 </template>
