@@ -26,6 +26,9 @@ jobs:
       - name: Lint Code
         working-directory: ./Vaesen_Character_Sheet
         run: npm run lint
+      - name: Prettier Format
+        working-directory: ./Vaesen_Character_Sheet
+        run: npm run format
       - name: Prettier Check
         working-directory: ./Vaesen_Character_Sheet
         run: npm run format:check
