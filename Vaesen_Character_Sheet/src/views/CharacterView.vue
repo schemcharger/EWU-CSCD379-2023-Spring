@@ -1,6 +1,7 @@
 <template>
   <main>
     <h1>This is a character sheet</h1>
+    <CharacterDetails />
     <v-card>
         <ul>
         <li>add details</li>
@@ -17,3 +18,7 @@
     </v-card>
   </main>
 </template>
+
+<script setup lang="ts">
+import CharacterDetails from "@/components/CharacterDetails.vue";
+</script>
