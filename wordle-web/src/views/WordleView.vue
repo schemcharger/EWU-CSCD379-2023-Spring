@@ -3,7 +3,7 @@
 
   <GameBoard :game="game" @letterClick="addChar" />
 
-  <KeyBoard @letterClick="addChar" :guessedLetters="game.guessedLetters" />
+  <GameKeyboard :guessedLetters="game.guessedLetters" @letterClick="addChar" />
 
   <WordSelect :validWords="validWords" v-model="selection" @selectWord="addWord" />
 
@@ -31,14 +31,49 @@ const input = ref(true)
 
 onMounted(async () => {
   window.addEventListener('keyup', keyPress)
-  await game.restartGame()
-  console.log(game.secretWord)
 })
 onUnmounted(() => {
   window.removeEventListener('keyup', keyPress)
 })
 
-function checkGuess() {
+function addWord() {
+  overlay.value = true
+  Axios.post('word/AddWordFromBody', {
+    text: 'tests',
+    isCommon: true,
+    isUsed: false
+  })
+    .then((response) => {
+      overlay.value = false
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
+function newGame() {
+  overlay.value = true
+  Axios.get('word')
+    .then((response) => {
+      game.restartGame(response.data)
+      console.log(game.secretWord)
+      setTimeout(() => {
+        overlay.value = false
+      }, 502)
+    })
+    .catch((error) => {
+      console.log(error)
+      game.restartGame(WordsService.getRandomWord())
+      console.log(game.secretWord)
+      overlay.value = false
+    })
+}
+
+function checkGuess(word?: string) {
+  if (typeof word === 'string') {
+    game.guess.set(word)
+  }
   game.submitGuess()
   guesses.push(guess.value)
   validWords.value = WordsService.validWords(guesses, game.secretWord)
